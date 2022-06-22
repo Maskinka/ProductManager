@@ -4,7 +4,6 @@ import ru.netology.domain.Product;
 import ru.netology.repository.ProductRepository;
 
 public class ProductManager {
-    private Product[] products = new Product[0];
     private ProductRepository repository;
 
     public ProductManager(ProductRepository repository) {
