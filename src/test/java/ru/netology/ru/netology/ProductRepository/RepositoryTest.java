@@ -7,6 +7,7 @@ import ru.netology.domain.Book;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
 import ru.netology.manager.ProductManager;
+import ru.netology.repository.AlreadyExistsException;
 import ru.netology.repository.NotFoundException;
 import ru.netology.repository.ProductRepository;
 
@@ -44,5 +45,23 @@ public class RepositoryTest {
         assertThrows(NotFoundException.class, () -> {
             repository.removeById(-2);
         });
+    }
+    @Test
+    public void alreadyExistsException() {
+        repository.addProduct(book1);
+        repository.addProduct(smartphone1);
+
+        assertThrows(AlreadyExistsException.class, () -> {
+            repository.addProduct(book1);
+        });
+    }
+    @Test
+    public void addProduct() {
+        repository.addProduct(book1);
+        repository.addProduct(smartphone1);
+
+        Product[] actual = repository.findAllProduct();
+        Product[] expected = {book1, smartphone1};
+        assertArrayEquals(expected, actual);
     }
 }
