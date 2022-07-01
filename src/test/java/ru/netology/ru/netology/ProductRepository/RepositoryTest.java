@@ -7,6 +7,7 @@ import ru.netology.domain.Book;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
 import ru.netology.manager.ProductManager;
+import ru.netology.repository.NotFoundException;
 import ru.netology.repository.ProductRepository;
 
 public class RepositoryTest {
@@ -34,5 +35,14 @@ public class RepositoryTest {
         Product[] actual = repository.findAllProduct();
         Product[] expected = {book1, smartphone1};
         assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void notFoundException() {
+        repository.addProduct(book1);
+        repository.addProduct(smartphone1);
+
+        assertThrows(NotFoundException.class, () -> {
+            repository.removeById(-2);
+        });
     }
 }
