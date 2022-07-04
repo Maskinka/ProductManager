@@ -21,6 +21,7 @@ public class ProductManager {
             return false;
         }
     }
+
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];
         for (Product product : repository.findAllProduct()) {

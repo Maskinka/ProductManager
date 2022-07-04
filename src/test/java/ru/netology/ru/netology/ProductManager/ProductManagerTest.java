@@ -24,6 +24,7 @@ public class ProductManagerTest {
         Product[] expected = {book1};
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldFindPartName() {
         manager.add(book1);
@@ -33,6 +34,7 @@ public class ProductManagerTest {
         Product[] expected = {smartphone1};
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldFindNotElement() {
         manager.add(book1);
@@ -42,13 +44,14 @@ public class ProductManagerTest {
         Product[] expected = {};
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldFindNot() {
         manager.add(book1);
         manager.add(smartphone1);
 
         Product[] actual = manager.searchBy("on");
-        Product[] expected = {book1,smartphone1};
+        Product[] expected = {book1, smartphone1};
         assertArrayEquals(expected, actual);
     }
 }

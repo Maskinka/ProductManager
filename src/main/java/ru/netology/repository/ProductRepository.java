@@ -36,15 +36,15 @@ public class ProductRepository {
         if (findById(id) == null) {
             throw new NotFoundException("Element with id: " + id + " not found");
         }
-            int length = products.length - 1;
-            Product[] tmp = new Product[length];
-            int copy = 0;
-            for (Product product : products) {
-                if (product.getId() != id) {
-                    tmp[copy] = product;
-                    copy++;
-                }
+        int length = products.length - 1;
+        Product[] tmp = new Product[length];
+        int copy = 0;
+        for (Product product : products) {
+            if (product.getId() != id) {
+                tmp[copy] = product;
+                copy++;
             }
-            products = tmp;
         }
+        products = tmp;
     }
+}

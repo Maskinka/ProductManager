@@ -37,6 +37,7 @@ public class RepositoryTest {
         Product[] expected = {book1, smartphone1};
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void notFoundException() {
         repository.addProduct(book1);
@@ -46,6 +47,7 @@ public class RepositoryTest {
             repository.removeById(-2);
         });
     }
+
     @Test
     public void alreadyExistsException() {
         repository.addProduct(book1);
@@ -55,6 +57,7 @@ public class RepositoryTest {
             repository.addProduct(book1);
         });
     }
+
     @Test
     public void addProduct() {
         repository.addProduct(book1);
